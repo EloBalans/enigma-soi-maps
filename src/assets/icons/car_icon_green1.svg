@@ -1,0 +1,16 @@
+<svg width="100" height="165" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <g>
+  <title>Layer 1</title>
+  <svg width="288" height="288" version="1" id="svg_8" x="1" y="0" xmlns="http://www.w3.org/2000/svg">
+   <g transform="matrix(1.51752 0 0 1.49602 -612.8 -881.475)" fill="#ffffff" class="color000 svgShape" id="svg_9">
+    <path fill="#52cc99" fill-rule="evenodd" stroke="#000000" d="m436.7647,589.71798c-8.49388,0 -25.5,8.60246 -25.5,15.89285l0,17.32143c-6.85268,0.20089 -7.97503,5.89286 -6.2092,5.89286l6.2092,0l-0.17857,54.46428c-0.02171,6.62147 13.92822,15.71429 25.67857,15.71429c11.75035,0 25.70028,-9.09282 25.67857,-15.71429l-0.04724,-14.40761l-0.13133,-40.05667l6.2092,0c1.76583,0 0.64348,-5.69197 -6.2092,-5.89286l0,-17.32143c0,-7.29039 -17.00612,-15.89285 -25.5,-15.89285z" class="colorred svgShape colorStroke000 svgStroke" id="svg_14"/>
+    <path fill="#ffffff" fill-rule="evenodd" stroke="#7d7d7d" stroke-width="0.25" d="m416.62477,634.5379c-0.09317,-5.24423 13.17659,-8.91435 20.13992,-9.00401c6.96611,-0.0897 20.1399,5.41652 20.1399,9.00398c0,3.58881 0,3.61971 0,8.20749c-13.42661,0 -26.85321,0 -40.27982,0c0,-4.58777 0.09319,-2.9625 0,-8.20746zm0.00001,40.98682c7.38977,2.10735 15.17534,4.98152 22.96379,4.58565c5.88917,-0.344 11.71114,-2.95668 17.31604,-4.58562c0,-4.08516 0.00001,-4.76105 0.00001,-8.84621c-13.42661,0 -26.85323,0 -40.27984,0c0,4.08515 0,4.76104 0,8.84618z" color="#000" enable-background="accumulate" overflow="visible" class="colorfff svgShape colorStroke7d7d7d svgStroke" id="svg_13"/>
+    <g fill="#ffffff" stroke="#7d7d7d" stroke-width="0.25" class="colorfff svgShape colorStroke7d7d7d svgStroke" id="svg_10">
+     <path fill-rule="evenodd" stroke-width="0.197" d="m427.04109,603.72428a4.16687,-5.17705 0 1 1 -8.33376,0l4.16688,0l4.16687,0l0.00001,0z" color="#000" enable-background="accumulate" overflow="visible" fill="#ffffff" class="color000 svgShape" id="svg_12"/>
+     <path fill-rule="evenodd" stroke-width="0.197" d="m454.82108,603.78739a4.16687,-5.17705 0 1 1 -8.33376,0l4.16688,0l4.16687,0l0.00001,0z" color="#000" enable-background="accumulate" overflow="visible" fill="#ffffff" class="color000 svgShape" id="svg_11"/>
+    </g>
+   </g>
+  </svg>
+ </g>
+
+</svg>

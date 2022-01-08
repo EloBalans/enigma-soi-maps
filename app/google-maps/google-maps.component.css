@@ -1,0 +1,15 @@
+agm-map {
+    height: 700px;
+  }
+
+  ::ng-deep .gm-style div[aria-hidden = "true"] {
+    background-color: #393939 !important;
+    color:#fff !important;
+    padding: 5px;
+    margin-top: 140px;
+    border-radius: 5px;
+}
+::ng-deep .gm-style image[aria-hidden = "true"]{
+  height: 60px !important;
+  width: 30px !important;
+}

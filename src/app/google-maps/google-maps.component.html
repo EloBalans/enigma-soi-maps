@@ -1,0 +1,125 @@
+<h1>{{ title }}</h1>
+
+<div *ngIf="loading ">
+  <div class="filterContainer">
+    <div class="filterContainerInside">
+      <h2>Auta</h2>
+      <div>
+        Dostępność aut
+        <select [(ngModel)]='vehicleFilter1'>
+          <option value="">Wszystkie</option>
+          <option value="AVAILABLE">Dostępne</option>
+          <option value="UNAVAILABLE">Niedostępne</option>
+        </select>
+      </div>
+      <div>
+        Minimum % naładowania auta
+        <input type='number' min="1" max="100"  [(ngModel)]='vehicleFilter2'>
+      </div>
+    </div>
+    <div class="filterContainerInside">
+      <h2>Parkingi</h2> 
+      <div>
+        <input type='checkbox' [(ngModel)]='parkingFilter1'> Tylko wolne miejsca
+      </div>
+      <div>
+        <input type='checkbox' [(ngModel)]='parkingFilter2'  > Ładowarki
+      </div>
+    
+    </div>
+    <div class="filterContainerInside">
+      <h2>POI</h2>
+      <div>
+       Kategoria
+        <select [(ngModel)]='poiFilter1'>
+          <option value="" selected>Wszystkie</option>
+          <option *ngFor='let category of categoryList' [ngValue]="category">{{category}}</option>
+         
+        </select>
+      </div>
+      <div>
+        Miasto
+         <select [(ngModel)]='poiFilter2'>
+           <option value="" selected>Wszystkie</option>
+           <option *ngFor='let city of cityList' [ngValue]="city">{{city}}</option>
+         </select>
+       </div>
+    </div>
+  </div>
+
+
+ 
+
+
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]='zoom'>
+  <agm-marker-cluster  
+  [minimumClusterSize]="2"
+  [maxZoom]="13"
+  [styles]="clusterStyle"
+  >
+
+ 
+    <agm-marker *ngFor="let marker of (vehicles | filterVehicle:[vehicleFilter1,vehicleFilter2])" 
+      [latitude]="marker.location.latitude" 
+      [longitude]="marker.location.longitude " 
+      [iconUrl] = "marker.status=='AVAILABLE' ?'assets/icons/car_icon_green.svg' : 'assets/icons/car_icon_red.svg'"
+      [label] = "marker.platesNumber">
+       
+            <agm-info-window [disableAutoPan]="true" >
+               
+                {{marker.name}} <br>
+                 <div [style.color]=" 20>=marker.batteryLevelPct ?'red': ''" >Battery: <strong>{{marker.batteryLevelPct}}% </strong></div>
+                Range: {{marker.rangeKm}} km <br>
+                Status:  <div [style.color]="marker.status=='AVAILABLE' ?'green' : 'red'">{{marker.status}} </div> <br>
+
+                <div>
+                  <a class="btn btn-attention pull-right"></a>
+                </div>
+            
+        </agm-info-window>
+    </agm-marker>
+  </agm-marker-cluster> 
+
+    <agm-marker *ngFor="let marker of (parkings | filterParking:[parkingFilter1,parkingFilter2])" 
+    [latitude]="marker.location.latitude" 
+    [longitude]="marker.location.longitude" 
+    [iconUrl] = "acutalParkingIcon(marker.availableSpacesCount)">
+ 
+     
+           <agm-info-window [disableAutoPan]="true" >
+             {{marker.name}}<br>
+              <small>
+                Adres: ul. {{marker.address.street}} {{marker.address.house}} {{marker.address.city}}<br>
+                Opis:  {{marker.description}}<br>
+                Liczba miejsc dostępnych {{marker.availableSpacesCount}}/{{marker.spacesCount}}
+                <ng-container *ngIf='marker.chargers.length>0'>
+                  <br>Liczba ładowarek: {{marker.chargers.length}}
+                </ng-container>
+            
+              </small>
+              <div>
+                 <a class="btn btn-attention pull-right"></a>
+              </div>
+           
+       </agm-info-window>
+   </agm-marker>
+
+   <agm-marker *ngFor="let marker of(pois | filterPoi:[poiFilter1,poiFilter2])" 
+   [latitude]="marker.location.latitude" 
+   [longitude]="marker.location.longitude" 
+   [iconUrl] = "'assets/icons/poi.svg'" >
+     
+          <agm-info-window [disableAutoPan]="true" >
+            {{marker.name}}<br>
+              <small>
+              {{marker.description}}
+              </small>
+              <div>
+                <a class="btn btn-attention pull-right"></a>
+              </div>
+          
+      </agm-info-window>
+  </agm-marker>
+ 
+</agm-map>
+</div>
